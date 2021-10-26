@@ -63,10 +63,24 @@ fun String.countNumberOfX: Int {
 Kotlin allows avoiding the unnecessary wrapping util class and use top-level functions instead.
 
 
+### Don’t Overload for Default Arguments
+
+__BAD__:
 ```kotlin
+fun findString(name: String){
+    find(name, true)
+}
+fun findString(name: String, recursive: Boolean){
+}
 ```
+__GOOD__:
 ```kotlin
+fun findString(name: String, recursive: Boolean = true){
+}
 ```
+Default arguments remove nearly all use cases for method and constructor overloading in general, because overloading is mainly used to create default arguments.
+
+
 ```kotlin
 ```
 ```kotlin
