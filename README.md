@@ -80,11 +80,20 @@ fun findString(name: String, recursive: Boolean = true){
 ```
 Default arguments remove nearly all use cases for method and constructor overloading in general, because overloading is mainly used to create default arguments.
 
+### Avoid if null Checks
 
+__BAD__:
 ```kotlin
+if (order == null || order.customer == null || order.customer.address == null){
+    throw IllegalArgumentException("Invalid Order")
+}
+val address =order.customer.address.city
 ```
+__GOOD__:
 ```kotlin
+val city = order?.customer?.address?.city ?: throw IllegalArgumentException("Invalid Order")
 ```
+Always make fields as nullable which can hold null values and instead of using if-null checks you can use safe call operator along with the elvis operator.
 ```kotlin
 ```
 ```kotlin
