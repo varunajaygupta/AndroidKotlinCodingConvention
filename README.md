@@ -94,9 +94,42 @@ __GOOD__:
 val city = order?.customer?.address?.city ?: throw IllegalArgumentException("Invalid Order")
 ```
 Always make fields as nullable which can hold null values and instead of using if-null checks you can use safe call operator along with the elvis operator.
+
+
+### Refer to Constructor Parameters in Property Initializers
+
+__BAD__:
 ```kotlin
+class UsersClient(baseUrl: String, appName: String) {
+    private val usersUrl: String
+    private val httpClient: HttpClient
+    init {
+        usersUrl = "$baseUrl/users"
+        val builder = HttpClientBuilder.create()
+        builder.setUserAgent(appName)
+        builder.setConnectionTimeToLive(10, TimeUnit.SECONDS)
+        httpClient = builder.build()
+    }
+    fun getUsers(){
+        //call service using httpClient and usersUrl
+    }
+}
 ```
+
+__GOOD__:
 ```kotlin
+class UsersClient(baseUrl: String, appName: String) {
+    private val usersUrl = "$baseUrl/users"
+    private val httpClient = HttpClientBuilder.create().apply {
+        setUserAgent(appName)
+        setConnectionTimeToLive(10, TimeUnit.SECONDS)
+    }.build()
+    fun getUsers(){
+        //call service using httpClient and usersUrl
+    }
+}
 ```
+We can refer to the primary constructor parameters in property initializers (and not only in the init block). apply() can help to group initialization code and get along with a single expression.
+
 
 
