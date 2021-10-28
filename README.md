@@ -2,7 +2,7 @@
 The document enlist code snippets certain mistakes and their fixes
 
 
-### WHEN
+### 1. WHEN
 
 
 __BAD__:
@@ -37,7 +37,7 @@ fun getDefaultLocale2(deliveryArea: String) = when (deliveryArea.toLowerCase()) 
 Every time you write an if consider if it can be replaced with a more concise when expression.
 
 
-### Top-Level (Extension) Functions for Utility Functions
+### 2. Top-Level (Extension) Functions for Utility Functions
 
 __BAD__:
 ```kotlin
@@ -63,7 +63,7 @@ fun String.countNumberOfX: Int {
 Kotlin allows avoiding the unnecessary wrapping util class and use top-level functions instead.
 
 
-### Don’t Overload for Default Arguments
+### 3. Don’t Overload for Default Arguments
 
 __BAD__:
 ```kotlin
@@ -80,7 +80,7 @@ fun findString(name: String, recursive: Boolean = true){
 ```
 Default arguments remove nearly all use cases for method and constructor overloading in general, because overloading is mainly used to create default arguments.
 
-### Avoid if null Checks
+### 4. Avoid if null Checks
 
 __BAD__:
 ```kotlin
@@ -96,7 +96,7 @@ val city = order?.customer?.address?.city ?: throw IllegalArgumentException("Inv
 Always make fields as nullable which can hold null values and instead of using if-null checks you can use safe call operator along with the elvis operator.
 
 
-### Refer to Constructor Parameters in Property Initializers
+### 5. Refer to Constructor Parameters in Property Initializers
 
 __BAD__:
 ```kotlin
@@ -133,7 +133,7 @@ class UsersClient(baseUrl: String, appName: String) {
 * apply() can help to group initialization code and get along with a single expression.
 
 
-### Type Inference
+### 6. Type Inference
 
 __BAD__:
 ```kotlin
@@ -150,7 +150,7 @@ private val meaningOfLife = 42
 * Only include visibility modifiers if you need something other than the default of public.
 
 
-### Immutability
+### 7. Immutability
 
 __BAD__:
 ```kotlin
