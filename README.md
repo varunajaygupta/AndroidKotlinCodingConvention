@@ -208,3 +208,22 @@ println(message)
 // No of X found 3 in word with length 7
 ```
 Here we can use String Templates. A template expression starts with a dollar sign ($) and consists of either a name or an expression in curly braces. 
+
+### 9. Lambdas
+
+__NOT PREFFERED__:
+```kotlin
+button.setOnClickListener(object : View.OnClickListener {
+  override fun onClick(view: View) {
+    performAction()
+  }
+})
+```
+
+__PREFFERED__:
+```kotlin
+button.setOnClickListener {  performAction() }
+
+```
+
+Here we can use Lambdas. Lambdas let you pass functionality as an argument to a method, making the code much more clear, concise, and compact.
