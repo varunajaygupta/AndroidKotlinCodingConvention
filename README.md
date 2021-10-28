@@ -129,7 +129,48 @@ class UsersClient(baseUrl: String, appName: String) {
     }
 }
 ```
-We can refer to the primary constructor parameters in property initializers (and not only in the init block). apply() can help to group initialization code and get along with a single expression.
+* We can refer to the primary constructor parameters in property initializers (and not only in the init block). 
+* apply() can help to group initialization code and get along with a single expression.
 
 
+### Type Inference
+
+__BAD__:
+```kotlin
+public val something: MyType = MyType()
+private val meaningOfLife: Int = 42
+```
+
+__GOOD__:
+```kotlin
+val something = MyType()
+private val meaningOfLife = 42
+```
+* Type inference should be preferred where possible instead of explicitly declaring types.
+* Only include visibility modifiers if you need something other than the default of public.
+
+
+### Immutability
+
+__BAD__:
+```kotlin
+var eligibleCountries= arrayListOf("Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg")
+
+fun isCountryEligible(countryName: String, countriesEligible: ArrayList<String>):Boolean{
+    return countriesEligible.any { it.equals(countryName) }
+}
+```
+
+__GOOD__:
+```kotlin
+val eligibleCountries= listOf("Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg")
+
+fun isCountryEligible(countryName: String, countriesEligible: List<String>):Boolean{
+    return countriesEligible.any { it.equals(countryName) }
+}
+```
+
+
+* Prefer using immutable data to mutable. Always declare local variables and properties as val rather than var if they are not modified after initialization.
+* Always use immutable collection interfaces (Collection, List, Set, Map) to declare collections which are not mutated. 
 
