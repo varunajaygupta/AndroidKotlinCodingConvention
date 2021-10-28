@@ -1,6 +1,5 @@
 # Android Coding Conventions
-The document enlist code snippets certain mistakes and their fixes
-
+The document enlist code snippets focusing on common mistakes and their suggested solution.
 
 ### 1. WHEN
 
