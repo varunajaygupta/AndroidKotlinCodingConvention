@@ -173,3 +173,38 @@ fun isCountryEligible(countryName: String, countriesEligible: List<String>):Bool
 * Prefer using immutable data to mutable. Always declare local variables and properties as val rather than var if they are not modified after initialization.
 * Always use immutable collection interfaces (Collection, List, Set, Map) to declare collections which are not mutated. 
 
+### 8. String templates
+
+__NOT PREFFERED__:
+```kotlin
+var word ="aaXdsXX"
+var count=countOccurrences(word,'X')
+
+fun countOccurrences(s: String, ch: Char): Int {
+    return s.length - s.replace(ch.toString(), "").length
+}
+
+val message = "No of X found" +count +"in word with length "+ word.length
+
+```
+```kotlin
+println(message)
+// No of X found 3 in word with length 7
+```
+
+__PREFFERED__:
+```kotlin
+var word ="aaXdsXX"
+var count=countOccurrences(word,'X')
+
+fun countOccurrences(s: String, ch: Char): Int {
+    return s.length - s.replace(ch.toString(), "").length
+}
+
+val message = "No of X found $count in word with length ${word.length}"
+```
+```kotlin
+println(message)
+// No of X found 3 in word with length 7
+```
+Here we can use String Templates. A template expression starts with a dollar sign ($) and consists of either a name or an expression in curly braces. 
