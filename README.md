@@ -1,5 +1,5 @@
 # Android Coding Conventions
-The document enlist certain mistakes and their fixes
+The document enlist code snippets certain mistakes and their fixes
 
 
 ### WHEN
