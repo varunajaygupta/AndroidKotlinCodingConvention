@@ -4,7 +4,7 @@ The document enlist code snippets focusing on common mistakes and their suggeste
 ### 1. WHEN
 
 
-__BAD__:
+__Not Preferred__
 
 ```kotlin
 fun getDefaultLocale(deliveryArea: String): Locale {
@@ -22,7 +22,7 @@ fun getDefaultLocale(deliveryArea: String): Locale {
 }
 ```
 
-__GOOD__:
+__Preferred__
 
 ```kotlin
 fun getDefaultLocale2(deliveryArea: String) = when (deliveryArea.toLowerCase()) {
@@ -38,7 +38,7 @@ Every time you write an if consider if it can be replaced with a more concise wh
 
 ### 2. Top-Level (Extension) Functions for Utility Functions
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 object StringUtil {
     fun countNumberOfX(string: String): Int{
@@ -49,7 +49,7 @@ object StringUtil {
 ```kotlin
 StringUtil.countNumberOfX("xFunxWithxKotlinx")
 ```
-__GOOD__:
+__Preferred__
 ```kotlin
 fun String.countNumberOfX: Int {
     return length - replace("x", "").length
@@ -64,7 +64,7 @@ Kotlin allows avoiding the unnecessary wrapping util class and use top-level fun
 
 ### 3. Don’t Overload for Default Arguments
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 fun findString(name: String){
     find(name, true)
@@ -72,7 +72,7 @@ fun findString(name: String){
 fun findString(name: String, recursive: Boolean){
 }
 ```
-__GOOD__:
+__Preferred__
 ```kotlin
 fun findString(name: String, recursive: Boolean = true){
 }
@@ -81,14 +81,14 @@ Default arguments remove nearly all use cases for method and constructor overloa
 
 ### 4. Avoid if null Checks
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 if (order == null || order.customer == null || order.customer.address == null){
     throw IllegalArgumentException("Invalid Order")
 }
 val address =order.customer.address.city
 ```
-__GOOD__:
+__Preferred__
 ```kotlin
 val city = order?.customer?.address?.city ?: throw IllegalArgumentException("Invalid Order")
 ```
@@ -97,7 +97,7 @@ Always make fields as nullable which can hold null values and instead of using i
 
 ### 5. Refer to Constructor Parameters in Property Initializers
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 class UsersClient(baseUrl: String, appName: String) {
     private val usersUrl: String
@@ -115,7 +115,7 @@ class UsersClient(baseUrl: String, appName: String) {
 }
 ```
 
-__GOOD__:
+__Preferred__
 ```kotlin
 class UsersClient(baseUrl: String, appName: String) {
     private val usersUrl = "$baseUrl/users"
@@ -134,13 +134,13 @@ class UsersClient(baseUrl: String, appName: String) {
 
 ### 6. Type Inference
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 public val something: MyType = MyType()
 private val meaningOfLife: Int = 42
 ```
 
-__GOOD__:
+__Preferred__
 ```kotlin
 val something = MyType()
 private val meaningOfLife = 42
@@ -151,7 +151,7 @@ private val meaningOfLife = 42
 
 ### 7. Immutability
 
-__BAD__:
+__Not Preferred__
 ```kotlin
 var eligibleCountries= arrayListOf("Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg")
 
@@ -160,7 +160,7 @@ fun isCountryEligible(countryName: String, countriesEligible: ArrayList<String>)
 }
 ```
 
-__GOOD__:
+__Preferred__
 ```kotlin
 val eligibleCountries= listOf("Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg")
 
@@ -175,7 +175,7 @@ fun isCountryEligible(countryName: String, countriesEligible: List<String>):Bool
 
 ### 8. String templates
 
-__NOT PREFFERED__:
+__Not Preferred__
 ```kotlin
 var word ="aaXdsXX"
 var count=countOccurrences(word,'X')
@@ -192,7 +192,7 @@ println(message)
 // No of X found 3 in word with length 7
 ```
 
-__PREFFERED__:
+__Not Preferred__
 ```kotlin
 var word ="aaXdsXX"
 var count=countOccurrences(word,'X')
@@ -211,7 +211,7 @@ Here we can use String Templates. A template expression starts with a dollar sig
 
 ### 9. Lambdas
 
-__NOT PREFFERED__:
+__Not Preferred__
 ```kotlin
 button.setOnClickListener(object : View.OnClickListener {
   override fun onClick(view: View) {
@@ -220,10 +220,10 @@ button.setOnClickListener(object : View.OnClickListener {
 })
 ```
 
-__PREFFERED__:
+__Not Preferred__
 ```kotlin
 button.setOnClickListener {  performAction() }
 
 ```
 
-Here we can use Lambdas. Lambdas let you pass functionality as an argument to a method, making the code much more clear, concise, and compact.
+Lambdas let you pass functionality as an argument to a method, making the code much more clear, concise, and compact.
