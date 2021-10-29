@@ -86,11 +86,11 @@ __Not Preferred__
 if (order == null || order.customer == null || order.customer.address == null){
     throw IllegalArgumentException("Invalid Order")
 }
-val address =order.customer.address.city
+val address =order.customer.address
 ```
 __Preferred__
 ```kotlin
-val city = order?.customer?.address?.city ?: throw IllegalArgumentException("Invalid Order")
+val city = order?.customer?.address ?: throw IllegalArgumentException("Invalid Order")
 ```
 Always make fields as nullable which can hold null values and instead of using if-null checks you can use safe call operator along with the elvis operator.
 
@@ -184,7 +184,7 @@ fun countOccurrences(s: String, ch: Char): Int {
     return s.length - s.replace(ch.toString(), "").length
 }
 
-val message = "No of X found" +count +"in word with length "+ word.length
+val message = "No of X found"+count+"in word with length "+word.length
 
 ```
 ```kotlin
