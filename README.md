@@ -192,7 +192,7 @@ println(message)
 // No of X found 3 in word with length 7
 ```
 
-__Not Preferred__
+__Preferred__
 ```kotlin
 var word ="aaXdsXX"
 var count=countOccurrences(word,'X')
@@ -220,7 +220,7 @@ button.setOnClickListener(object : View.OnClickListener {
 })
 ```
 
-__Not Preferred__
+__Preferred__
 ```kotlin
 button.setOnClickListener {  performAction() }
 
