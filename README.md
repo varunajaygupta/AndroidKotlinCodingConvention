@@ -14,7 +14,7 @@ The document enlist code snippets focusing on common mistakes and their suggeste
 1. [String templates](#string-templates) 
 1. [Lambdas](#lambdas)
 
-### 1. WHEN
+### WHEN
 
 
 __Not Preferred__
