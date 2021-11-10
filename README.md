@@ -49,7 +49,7 @@ fun getDefaultLocale2(deliveryArea: String) = when (deliveryArea.toLowerCase()) 
 Every time you write an if consider if it can be replaced with a more concise when expression.
 
 
-### 2. Top-Level (Extension) Functions for Utility Functions
+### Top-Level (Extension) Functions for Utility Functions
 
 __Not Preferred__
 ```kotlin
@@ -75,7 +75,7 @@ fun String.countNumberOfX: Int {
 Kotlin allows avoiding the unnecessary wrapping util class and use top-level functions instead.
 
 
-### 3. Don’t Overload for Default Arguments
+### Don’t Overload for Default Arguments
 
 __Not Preferred__
 ```kotlin
@@ -92,7 +92,7 @@ fun findString(name: String, recursive: Boolean = true){
 ```
 Default arguments remove nearly all use cases for method and constructor overloading in general, because overloading is mainly used to create default arguments.
 
-### 4. Avoid if null Checks
+### Avoid if null Checks
 
 __Not Preferred__
 ```kotlin
@@ -108,7 +108,7 @@ val city = order?.customer?.address ?: throw IllegalArgumentException("Invalid O
 Always make fields as nullable which can hold null values and instead of using if-null checks you can use safe call operator along with the elvis operator.
 
 
-### 5. Refer to Constructor Parameters in Property Initializers
+### Refer to Constructor Parameters in Property Initializers
 
 __Not Preferred__
 ```kotlin
@@ -145,7 +145,7 @@ class UsersClient(baseUrl: String, appName: String) {
 * apply() can help to group initialization code and get along with a single expression.
 
 
-### 6. Type Inference
+### Type Inference
 
 __Not Preferred__
 ```kotlin
@@ -162,7 +162,7 @@ private val meaningOfLife = 42
 * Only include visibility modifiers if you need something other than the default of public.
 
 
-### 7. Immutability
+### Immutability
 
 __Not Preferred__
 ```kotlin
@@ -186,7 +186,7 @@ fun isCountryEligible(countryName: String, countriesEligible: List<String>):Bool
 * Prefer using immutable data to mutable. Always declare local variables and properties as val rather than var if they are not modified after initialization.
 * Always use immutable collection interfaces (Collection, List, Set, Map) to declare collections which are not mutated. 
 
-### 8. String templates
+### String templates
 
 __Not Preferred__
 ```kotlin
@@ -222,7 +222,7 @@ println(message)
 ```
 Here we can use String Templates. A template expression starts with a dollar sign ($) and consists of either a name or an expression in curly braces. 
 
-### 9. Lambdas
+### Lambdas
 
 __Not Preferred__
 ```kotlin
