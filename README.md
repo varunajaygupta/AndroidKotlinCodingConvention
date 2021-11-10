@@ -1,6 +1,18 @@
 # Android Coding Conventions
 The document enlist code snippets focusing on common mistakes and their suggested solution.
 
+
+## Table of Contents
+1. [WHEN](#when)
+1. [Top-Level (Extension) Functions for Utility Functions](#top-level-extension-functions)
+1. [Don’t Overload for Default Arguments](#style)
+1. [Avoid if null Checks](#patterns)
+1. [Refer to Constructor Parameters in Property Initializers](#file-organization)
+1. [Type Inference](#type-inference)
+1. [Immutability](#immutability)
+1. [String templates](#string-templates) 
+1. [Lambdas](#lambdas)
+
 ### 1. WHEN
 
 
