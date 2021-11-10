@@ -3,6 +3,7 @@ The document enlist code snippets focusing on common mistakes and their suggeste
 
 
 ## Table of Contents
+
 1. [ WHEN](#when)
 1. [Top-Level (Extension) Functions for Utility Functions](#top-level-extension-functions)
 1. [Don’t Overload for Default Arguments](#don’t-overload-for-default-arguments)
